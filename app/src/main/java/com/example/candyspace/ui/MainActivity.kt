@@ -1,7 +1,8 @@
-package com.example.candyspace
+package com.example.candyspace.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.candyspace.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,25 +10,3 @@ object Constant {
     const val SORT="reputation"
     const val SITE="stackoverflow"
 }
-
-class Car constructor(val wheel: Wheel){
-
-fun statrt(){
-wheel.move()
-}
-
-}
-
-class Wheel(){
-   fun move(){
-
-   }
-}
-
-class main(){
-    val wheel=Wheel()
-}
-
-class Gear(){
-
-}
