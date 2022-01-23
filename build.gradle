@@ -1,5 +1,96 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext {
+        //Kotlin
+        kotlin_version = "1.4.30"
+
+        //Versioning
+        compileSdkVersion = 30
+        buildToolsVersion = "30.0.3"
+        minSdkVersion = 22
+        targetSdkVersion = 30
+        versionCode = 1
+        versionName = "1.0"
+
+        //Plugins
+        ktlint_version = "9.2.1"
+
+        //Presentation layer
+        androidCore_version = "1.6.0"
+        appCompat_version = "1.2.0"
+        material_version = "1.4.0"
+        materialDialog_version="3.3.0"
+        constraintLayout_version = "2.0.4"
+        nav_version = "2.3.5"
+        lifecycle_version = '2.4.0'
+        lifecycle_runtime = '2.4.0'
+        hilt_version = "2.38.1"
+
+
+        //Data layer
+        retrofit_version = '2.9.0'
+        okhttp_vesion = "4.8.0"
+        coroutine_version = "1.6.0"
+        loggingIntercepter_version = "4.7.2"
+        timber_version = "4.7.1"
+
+        //Test Libraries
+        jUnit_version = "4.13.2"
+        coroutinesTest_version = "1.3.4"
+
+        //region Presentation Layer Dependencies
+        appDependencies = [
+                kotlin               : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+                androidCore          : "androidx.core:core-ktx:$androidCore_version",
+                appCompat            : "androidx.appcompat:appcompat:$appCompat_version",
+                material             : "com.google.android.material:material:$material_version",
+                constraintLayout     : "androidx.constraintlayout:constraintlayout:$constraintLayout_version",
+                liveData             : "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version",
+                viewModel            : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version",
+                navFragment          : "androidx.navigation:navigation-fragment-ktx:$nav_version",
+                navUi                : "androidx.navigation:navigation-ui-ktx:$nav_version",
+                lifecycle            :  "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime",
+                materialDialog       :"com.afollestad.material-dialogs:core:$materialDialog_version",
+                hiltAndroid          : "com.google.dagger:hilt-android:$hilt_version",
+                hiltCompiler  : "com.google.dagger:hilt-compiler:$hilt_version"
+        ]
+
+        //region Data Layers Dependencies
+        dataDependencies = [
+                kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+                retrofit           : "com.squareup.retrofit2:retrofit:$retrofit_version",
+                okhttp             : "com.squareup.okhttp3:okhttp:$okhttp_vesion",
+                coroutinesCore     : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version",
+                gsonConvertor      : "com.squareup.retrofit2:converter-gson:$retrofit_version",
+                loggingIntercepter : "com.squareup.okhttp3:logging-interceptor:$loggingIntercepter_version",
+                timber             : "com.jakewharton.timber:timber:$timber_version"
+        ]
+        //endregion
+
+        //region Domain Layer Dependencies
+        domainDependencies = [
+                kotlin        : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+                coroutinesCore: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version",
+        ]
+        //endregion
+
+        //region Test Dependencies
+        testDependencies = [
+                //Local tests libs
+                jUnit                 : "junit:junit:$jUnit_version",
+                coroutinesTest        : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTest_version",
+
+                //Android tests libs
+                androidJUnit          : "androidx.test.ext:junit-ktx:1.1.2",
+                androidEspresso       : "androidx.test.espresso:espresso-core:3.3.0",
+                androidCoreTesting    : "androidx.test:core-ktx:1.3.0",
+                androidArchCoreTesting: "androidx.arch.core:core-testing:2.1.0",
+                androidTestRules      : "androidx.test:rules:1.3.0",
+                androidTestRunner     : "androidx.test:runner:1.3.0"
+        ]
+        //endregion
+
+    }
     repositories {
         google()
         mavenCentral()
@@ -7,6 +98,8 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
+        //Dagger Hilt
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
