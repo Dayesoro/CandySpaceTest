@@ -1,4 +1,4 @@
-package com.example.candyspacetest.common
+package com.example.candyspace.common
 
 sealed class DataState<T>(
     val datas: T?=null

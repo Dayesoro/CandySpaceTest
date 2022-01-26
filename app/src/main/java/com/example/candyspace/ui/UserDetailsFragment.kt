@@ -1,4 +1,4 @@
-package com.example.candyspacetest.ui
+package com.example.candyspace.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.candyspace.databinding.FragmentUserDetailsBinding
-import com.example.candyspace.ui.UserDetailsFragmentArgs
 import com.example.candyspace.utils.DateExtension.convertLongToTime
 import dagger.hilt.android.AndroidEntryPoint
 

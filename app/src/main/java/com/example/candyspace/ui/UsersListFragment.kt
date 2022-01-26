@@ -1,34 +1,32 @@
-package com.example.candyspacetest.ui
+package com.example.candyspace.ui
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.*
 import android.view.ViewGroup
-import androidx.activity.viewModels
-import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import com.example.candyspace.R
+import com.example.candyspace.common.DataState
 import com.example.candyspace.databinding.FragmentUsersListBinding
 import com.example.candyspace.domain.entity.UsersData
-import com.example.candyspace.ui.UsersListFragmentDirections
 import com.example.candyspace.ui.adapter.UserAdapter
-import com.example.candyspacetest.common.DataState
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import timber.log.Timber
+
 
 @AndroidEntryPoint
 class UsersListFragment : Fragment() {
@@ -59,7 +57,7 @@ class UsersListFragment : Fragment() {
 
     private fun subscribeObserver() {
         lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.userUiState.collect {
                     when(it){
                         is DataState.Error -> {
@@ -79,14 +77,18 @@ class UsersListFragment : Fragment() {
                         }
                     }
                 }
+                }
             }
         }
-    }
     private fun onClick(usersData: UsersData) {
         val action = UsersListFragmentDirections.actionUsersListFragmentToUserDetailsFragment(usersData)
         findNavController().navigate(action)
 
     }
-}
+
+    }
+
+
+
 
 

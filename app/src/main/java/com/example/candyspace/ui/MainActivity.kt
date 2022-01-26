@@ -1,4 +1,4 @@
-package com.example.candyspacetest.ui
+package com.example.candyspacet.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -3,7 +3,7 @@ package com.example.candyspace.di
 import com.example.candyspace.data.Constant.BASE_URL
 import com.example.candyspace.data.remote.StackExchangeApi
 import com.example.candyspace.data.remote.StackExchangeRemoteDataSource
-import com.example.candyspacetest.data.repository.UserRepository
+import com.example.candyspace.data.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
