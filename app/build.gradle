@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'de.mannodermaus.android-junit5'
 }
 
 android {
@@ -16,6 +18,17 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs += 'build/generated/source/navigation-args'
+            }
+        }
+    }
+    buildFeatures {
+        viewBinding true
     }
 
     buildTypes {
@@ -56,9 +69,12 @@ dependencies {
 
     //Timber dep- For lightweight simplified logging
     api dataDependencies.timber
+    api appDependencies.coil
 
     //Test
     testImplementation testDependencies.jUnit
+    testImplementation testDependencies.jUnitRuntime
+    testImplementation testDependencies.mockk
     testImplementation testDependencies.coroutinesTest
 
     //Architecture Component

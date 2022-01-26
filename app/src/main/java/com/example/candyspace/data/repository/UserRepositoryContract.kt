@@ -1,7 +1,7 @@
 package com.example.candyspacetest.data.repository
 
+import com.example.candyspace.domain.entity.Users
 import com.example.candyspacetest.common.DataState
-import com.example.candyspacetest.domain.entity.Users
 import kotlinx.coroutines.flow.Flow
 
 

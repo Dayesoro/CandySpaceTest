@@ -25,6 +25,9 @@ buildscript {
         lifecycle_version = '2.4.0'
         lifecycle_runtime = '2.4.0'
         hilt_version = "2.38.1"
+        coilImage ="1.4.0"
+        mock="1.12.0"
+        mockwebServer="4.9.1"
 
 
         //Data layer
@@ -35,7 +38,7 @@ buildscript {
         timber_version = "4.7.1"
 
         //Test Libraries
-        jUnit_version = "4.13.2"
+        jUnit_version = "5.7.0"
         coroutinesTest_version = "1.3.4"
 
         //region Presentation Layer Dependencies
@@ -52,7 +55,8 @@ buildscript {
                 lifecycle            :  "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_runtime",
                 materialDialog       :"com.afollestad.material-dialogs:core:$materialDialog_version",
                 hiltAndroid          : "com.google.dagger:hilt-android:$hilt_version",
-                hiltCompiler  : "com.google.dagger:hilt-compiler:$hilt_version"
+                hiltCompiler  : "com.google.dagger:hilt-compiler:$hilt_version",
+                coil:           "io.coil-kt:coil:$coilImage"
         ]
 
         //region Data Layers Dependencies
@@ -77,9 +81,11 @@ buildscript {
         //region Test Dependencies
         testDependencies = [
                 //Local tests libs
-                jUnit                 : "junit:junit:$jUnit_version",
+                jUnit                 : "org.junit.jupiter:junit-jupiter-api:$jUnit_version",
+                jUnitRuntime          :  "org.junit.jupiter:junit-jupiter-engine:$jUnit_version",
                 coroutinesTest        : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTest_version",
-
+                mockk                 :  "io.mockk:mockk:$mock",
+                mockWebServer         :  "com.squareup.okhttp3:mockwebserver:${mockwebServer}",
                 //Android tests libs
                 androidJUnit          : "androidx.test.ext:junit-ktx:1.1.2",
                 androidEspresso       : "androidx.test.espresso:espresso-core:3.3.0",
@@ -91,15 +97,19 @@ buildscript {
         //endregion
 
     }
+
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.4"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
         //Dagger Hilt
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "de.mannodermaus.gradle.plugins:android-junit5:1.7.0.0"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

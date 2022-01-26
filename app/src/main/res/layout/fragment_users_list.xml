@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.UsersListFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sailec_medium"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:hintAnimationEnabled="false"
+        app:boxBackgroundMode="filled"
+        app:hintEnabled="true"
+        app:boxStrokeWidth="0dp"
+        app:boxBackgroundColor="#f1f1f1"
+        app:boxStrokeWidthFocused="0dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:hint="">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:hint="Search Users"
+            android:inputType="text"
+            android:fontFamily="@font/sailec_medium"
+            android:textColor="@color/black"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="#f4f7fd"
+        android:backgroundTintMode="add"
+        android:background="?android:attr/listDivider" />
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/indicator"
+        app:hideAnimationBehavior="outward"
+        app:showAnimationBehavior="inward"
+        app:indicatorColor="@color/black"
+        android:indeterminate="true"
+        android:visibility="visible"
+        android:layout_marginTop="8dp"
+        app:indeterminateAnimationType="disjoint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="8dp"
+        android:id="@+id/usersList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

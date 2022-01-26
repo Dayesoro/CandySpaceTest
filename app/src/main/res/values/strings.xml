@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CandySpace</string>
+    <string name="hello_blank_fragment">CandySpace</string>
 </resources>
